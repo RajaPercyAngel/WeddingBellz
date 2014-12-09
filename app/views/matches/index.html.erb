@@ -1,0 +1,15 @@
+<div class="row">
+	<% if @matches.empty?%>
+		<h3>No matches found...</h3>
+	<% else %>
+	<% @matches.each do |user|%>
+	  <div class="col-xs-6 col-md-3">
+	    <a href="/profiles/<%= user.id%>" class="thumbnail">
+	      <img src="<%= user.avatar.url(:list)%>" alt="...">
+	    <h4 class="text-center"><%= user.name%></h4>
+	    </a>
+	  </div>
+	 <% end %>
+	 <% end %>
+  
+</div>

@@ -1,0 +1,44 @@
+ <h2>Write your story</h2>
+ <hr>
+<%= form_for @success, :html => { :multipart => true, :class=>"form-horizontal" } do |f| %>
+
+  <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Couple Name</label>
+        <div class="col-sm-10">
+         <%= f.text_field :name,   :class=>"form-control" %>
+           
+        </div>
+      </div>    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Marriage Date</label>
+        <div class="col-sm-10">
+        <%= f.date_select :marriage_date, :start_year => 1950, :end_year => 2050,:order => [:day , :month , :year]%>
+           
+        </div>
+      </div>  
+
+       <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">About your matching Story </label>
+        <div class="col-sm-10">
+        <%=   f.text_area :story,   :class=>"form-control" %>
+           
+        </div>
+      </div>  
+   <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Upload image </label>
+        <div class="col-sm-10">
+         <%= f.file_field :image ,   :class=>"form-control"  %>
+           
+        </div>
+      </div>  
+  
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-primary">Submit</button>
+           <a href="/successes" class="btn btn-default"> Cancel</a>
+        </div>
+      </div>
+
+<% end %>
+
+
+

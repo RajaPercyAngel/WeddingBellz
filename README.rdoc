@@ -1,0 +1,26 @@
+Matrimonial Web Application is to provide Grooms and Brides with excellent matchmaking experience by exploring the opportunities and resources to meet true potential partner. Keeping our objective in mind, we have created a world renowned online matchmaking services that will touch the souls of millions of people all over the globe.
+
+The main purpose of this application is to facilitate matchmaking business by applying the information in the field.
+It helps the user by providing profiles of perspective “Bride” or “Groom” and other information regarding them online.
+User can get information regarding their dream life partner at his/her home at his/her convenience.
+This application also provides a search utility which helps those users who have a certain criteria of qualities in mind to make online matrimonial easier.
+          	Matrimonial website which will provide platform to a lot of Bride/Groom for finding perfect match. There are different sectors like Registration, Partner, Search, etc.So the Bride/Groom can get their interest for find their partner. Bride/Groom can directly search Partner according to their required criteria. 
+For This Application, we will provide following capabilities:
+(1) Admin Module
+(2) User Registration Module
+(3) User Profile Details
+(4) Image Uploading module
+(5) Creating album
+(6) Search Module
+
+
+TECHNOLOGY AND LITERATURE REVIEW:
+	The application will have to be completed using 
+	Operating System: Ubuntu
+	Ruby			: 2.1 
+ 	Rails 	        : 4.1  
+	Gem  			: Devise,Omni Art,Twitter Bootstrap, country_select,
+					  paperclip "~> 4.2",ransack
+
+
+

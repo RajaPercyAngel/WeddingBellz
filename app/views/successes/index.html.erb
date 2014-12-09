@@ -1,0 +1,20 @@
+<%= link_to 'Write a story', new_success_path  , :class=>"btn btn-primary pull-right" %> 
+
+<table class="table ">
+<caption> <h3>Bride and Groom Success Stories</h3></caption>
+<tbody>
+	<% @successes.each do |sc|%>
+	<tr>
+		<td class="col-md-1">
+			<img src="<%= sc.image.url(:thumb)%>" alt="...">
+		</td>
+		<td>
+			<h4><%= sc.name %></h4>
+			<p><%= truncate(sc.story, length: 100) %></p>
+			<%= link_to "read more...", sc%>
+		</td>
+	</tr>
+	<% end %>
+</tbody>
+	
+</table> 

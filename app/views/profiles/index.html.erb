@@ -1,0 +1,20 @@
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>User Name</th>
+			<th>Email</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |x| %>
+		<% if current_user != x%>
+		<tr>
+			<td><%= x.name %></td>
+			<td><%= x.email %></td>
+			<td> <%= link_to 'Delete', profile_path(x) , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<% end %>
+		<% end %>
+	</tbody>
+</table>

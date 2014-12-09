@@ -1,0 +1,72 @@
+<h2>Wedding Bells Partner Search...</h2>
+<hr>
+<% if !params[:age] %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">Partner Search</div>
+    <div class="panel-body">
+      <form role="form" action='/profiles/search'>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Age > </label>
+          <%= select("", "age", (18..50).collect {|p| [ p ] }, {  :prompt=>"select age greater then "} , {:class=>"form-control"  })%>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Marital Status</label>
+          <%= select("", "marital", ["Never Married", "Divorced", "Widowed", "Awaiting Divorce", "Annulled"], {:prompt=>"Doesn't Matter" } , {:class=>"form-control"  })%>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Religion </label>
+          <input type="text" name="religeon" class="form-control" id="" placeholder="Enter Religon">
+        </div>
+        
+        <div class="form-group">
+          <label for="exampleInputEmail1">Community</label>
+          <input type="text" name="community" class="form-control" id="" placeholder="Enter Community">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Country</label>
+           <%= country_select  :living_in, {priority: %w(US CA), rompt: 'Please select a country'}, {:class=>"form-control"} %>
+
+        </div>
+        <button type="submit" class="btn btn-default">Search</button>
+      </form>
+    </div>
+  </div>
+
+
+  </div>
+
+<%else%>
+<%= link_to "clear search", search_profiles_path, :class=>"btn btn-success pull-right"%>
+<% if @users.empty? %>
+	No matches found
+<% else %>
+ 	
+<strong>Total Matches found</strong> <%= @users.size%>
+<br>
+<table class="table table-striped">
+	<tbody>
+	<%  @users.each do |user| %>
+		<tr>
+			<td class="col-md-1">
+				<a href="/profiles/<%=user.id%>">
+				<%= image_tag user.avatar.url(:thumb) %>
+				</a> 
+			</td>
+			<td>
+				<a href="/profiles/<%=user.id%>"  >
+
+				<h4>	<%= user.name %>  </h4>
+				</a>
+			</td><td>
+				<%=link_to "Connect", wedding_requests_path(:wedding_request=>{ :sender_id=>current_user.id, :reciever_id=>user.id}, :q=>params[:q]), :method=> :post, :class=>"btn btn-primary" %>
+				
+			</td>
+		</tr>
+<% end %>
+
+	</tbody>
+</table>
+ 
+<% end %>
+<% end %>

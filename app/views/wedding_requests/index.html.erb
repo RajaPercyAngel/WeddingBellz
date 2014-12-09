@@ -1,0 +1,47 @@
+<h2>Inbox</h2>
+<%= link_to  'Received', wedding_requests_path ,:class=>"btn btn-primary"%>  
+<%= link_to  'Sent', wedding_requests_path(:sent=>true) ,:class=>"btn btn-default"%>  
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>
+      <% if params[:sent]=='true' %>
+        Receiver 
+        <% else %>
+        Sender
+        <% end %>
+      </th>
+      <th>Is accepted?</th>
+       <% if params[:sent] !='true' %>
+        <th>Action</th>
+        <% end %>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @requests.each do |wedding_request| %>
+      <tr>
+        <td><%= link_to  User.find(wedding_request.sender_id).first_name, profile_path(wedding_request.sender_id) %> </td>
+        <td>
+          <%=wedding_request.is_accepted %>
+        </td>
+       <% if params[:sent] !='true' %>
+         <td>
+
+          <% if !wedding_request.is_accepted and  !wedding_request.is_cancel%>
+         <%= link_to 'Accept', accept_wedding_request_path(wedding_request), method: :post, data: { confirm: 'Are you sure?' }  %> |
+          <% end %>
+          <% if !wedding_request.is_cancel and !wedding_request.is_accepted %>
+            <%= link_to 'Reject', accept_wedding_request_path(wedding_request), method: :post, data: { confirm: 'Are you sure?' } %>
+          <% end %> 
+        <% end %> 
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

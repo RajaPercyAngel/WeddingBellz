@@ -1,0 +1,198 @@
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Update Your Details
+  </div>
+  <div class="panel-body">
+  <%= form_for(@user, :url=>profile_path, :html => { :multipart => true, :class=>"form-horizontal" }) do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+      <h4>Your details...</h4>
+      <hr>
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">ProfileID</label>
+        <div class="col-sm-10">
+         <%= f.text_field :profile_id, :value => @profileId, :class=>"form-control", :readonly=>true %>
+           
+        </div>
+      </div>  
+       <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Date Of Birth</label>
+        <div class="col-sm-10">
+        <%= f.date_select :dob, :start_year => 1950, :end_year => 2050,:order => [:day , :month , :year], :class=>"form-control"  %>
+        </div>
+      </div>
+
+       <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Religion</label>
+        <div class="col-sm-10">
+         <%= f.text_field :religion,  :class=>"form-control"%>
+           
+        </div>
+      </div>  
+       <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Community</label>
+        <div class="col-sm-10">
+         <%= f.text_field :community,   :class=>"form-control"%>
+           
+        </div>
+      </div>   
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Mother tongue</label>
+        <div class="col-sm-10">
+         <%= f.text_field :mother_tongue,  :class=>"form-control"%>
+           
+        </div>
+      </div>  
+      
+  <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Living in</label>
+        <div class="col-sm-10">
+       <%= f.country_select :living_in, {priority: %w(US CA), prompt: 'Please select a country'}, {:class=>"form-control"} %>
+
+           
+        </div>
+      </div>  
+      
+  <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">State</label>
+        <div class="col-sm-10">
+         <%= f.text_field :state,  :class=>"form-control"%>
+           
+        </div>
+      </div>  
+        <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Mobile Number</label>
+        <div class="col-sm-10">
+         <%= f.text_field :mobile_no,  :class=>"form-control"%>
+           
+        </div>
+      </div>  
+      <hr>
+
+      <h4>Tell us a little about yourself...</h4>
+      <hr>
+
+         <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Marital status</label>
+        <div class="col-sm-10">
+          <%=f.select("marital_status", ["Never Married", "Divorced", "Widowed", "Awaiting Divorce", "Annulled"], {:prompt=>"Doesn't Matter" } , {:class=>"form-control"  })%>
+           
+        </div>
+      </div>  
+         <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Height</label>
+        <div class="col-sm-10">
+
+
+            <%=f.select("height", ["4ft 5in - 134cm", "4ft 6in - 137cm", "4ft 7in - 139cm", "4ft 8in - 142cm", "4ft 9in - 144cm", "4ft 10in - 147cm", "4ft 11in - 149cm", "5ft - 152cm", "5ft 1in - 154cm", "5ft 2in - 157cm", "5ft 3in - 160cm", "5ft 4in - 162cm", "5ft 5in - 165cm", "5ft 6in - 167cm", "5ft 7in - 170cm", "5ft 8in - 172cm", "5ft 9in - 175cm", "5ft 10in - 177cm", "5ft 11in - 180cm", "6ft - 182cm", "6ft 1in - 185cm", "6ft 2in - 187cm", "6ft 3in - 190cm", "6ft 4in - 193cm", "6ft 5in - 195cm", "6ft 6in - 198cm", "6ft 7in - 200cm", "6ft 8in - 203cm", "6ft 9in - 205cm", "6ft 10in - 208cm", "6ft 11in - 210cm", "7ft - 213cm"], {:prompt=>"Doesn't Matter" } , {:class=>"form-control"  })%>
+        </div>
+      </div>  
+
+           <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Skin tone</label>
+        <div class="col-sm-10">
+           <%= f.radio_button 'skin_tone', 'Very Fair' %> Very Fair
+          <%= f.radio_button 'skin_tone', 'Fair' %> Fair
+          <%= f.radio_button 'skin_tone', 'Dark' %> Dark 
+        </div>
+      </div>  
+           <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Body type</label>
+        <div class="col-sm-10">
+          <%= f.radio_button 'body_type', 'Slim' %> Slim
+        <%= f.radio_button 'body_type', 'Heavy' %> Heavy
+        <%= f.radio_button 'body_type', 'Average' %> Average
+           
+        </div>
+      </div>          <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Diet</label>
+        <div class="col-sm-10">
+         <%= f.radio_button 'diet', 'Veg' %> Veg
+        <%= f.radio_button 'diet', 'Non-Veg' %> Non_Veg
+        </div>
+      </div>          <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Smoke</label>
+        <div class="col-sm-10">
+         <%= f.radio_button 'smoke', 'No' %> No
+        <%= f.radio_button 'smoke', 'Occasionally' %> Occasionally
+        <%= f.radio_button 'smoke', 'Yes' %> Yes
+           
+        </div>
+      </div>          <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Drink</label>
+        <div class="col-sm-10">
+         <%= f.radio_button 'drink', 'No' %> No
+        <%= f.radio_button 'drink', 'Occasionally' %> Occasionally
+        <%= f.radio_button 'drink', 'Yes' %> Yes
+           
+        </div>
+      </div>  
+      <hr>
+      <h4>Fill your education and career details...</h4>
+      <hr>
+
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Education level</label>
+        <div class="col-sm-10">
+         <%= f.text_field :education_level,  :class=>"form-control"%>
+           
+        </div>
+        </div>
+        <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Occupation</label>
+        <div class="col-sm-10">
+         <%= f.text_field :occupation,  :class=>"form-control"%>
+           
+        </div>
+  </div>
+        <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Annual income</label>
+        <div class="col-sm-10">
+         <%= f.text_field :annual_income,  :class=>"form-control"%>
+           
+        </div>
+          </div>
+
+          <hr>
+          <h4>In your own words</h4>
+          <hr>
+          <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">In your own words</label>
+        <div class="col-sm-10">
+         <%= f.text_area :more_info,  :class=>"form-control"%>
+           
+        </div>
+          </div>
+          <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Upload Picture</label>
+        <div class="col-sm-10">
+         <%= f.file_field :avatar,  :class=>"form-control"%>
+           
+        </div>
+          </div>
+
+      <!-- 
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-default">Sign in</button>
+        </div>
+      </div> -->
+      <div class="panel-footer"><%= f.submit "Update" , :class=>"btn btn-primary" %></div>
+
+    <% end %>
+  </div>
+</div>
+
+ 
+  

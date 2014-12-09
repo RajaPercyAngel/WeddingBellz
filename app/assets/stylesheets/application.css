@@ -1,0 +1,27 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree .
+*/
+
+#home-section { width: 124%;
+	margin-top: -150px;
+margin-left: -140px;background-image: url("http://benphotography.co.uk/wp-content/uploads/Wedding-photography-cornwall1.png"); -webkit-background-size: cover; -moz-background-
+size: cover; -o-background-size: cover; background-size: cover; padding: 190px 0
+110px 0; color: #ffffff; } 
+
+.home-features { padding: 0 15px 0 15px; margin-bottom: 10px; }
+.home-features h1 { font-family: 'PT Sans', sans-serif; font-weight: bold; font-size: 4.5em; padding-top: 10px; margin-top: 10px; padding-bottom: 0; }
+.home-features .home-features-content { background-color: rgba(0, 0, 0, 0.4); border-radius: 8px; padding: 10px 20px 20px 20px; }
+.home-features ul { padding: 0 50px 20px 50px; }
+.home-features h3 { font-size: 1.4em; font-weight: 400; }
+#home-section p { font-family: 'PT Sans', sans-serif; font-size: 1.6em; }
+#home-section .btn { margin-top: 10px; }
+.form-subscribe { color: #ffffff; padding: 10px 10px 10px 10px; background-color: rgba(0, 0, 0, 0.4); border-radius: 8px; }
+.form-subscribe-content { width: 80%; margin: 0 auto; }
+.form-subscribe h4 { font-family: 'PT Sans', sans-serif; font-size: 1.4em; text-align: center; color: #ffffff; padding-bottom: 10px; }
+.newsletter-info { padding-bottom: 10px; }
+.form-subscribe .form-control { height: 44px; background-color: #ffffff; border: 1px solid #cccccc; transition: all 0.2s ease-in-out 0.2s; -ms-transition: all 0.2s ease-in-out 0.2s; -moz-transition: all 0.2s ease-in-out 0.2s; -webkit-transition: all 0.2s ease-in-out 0.2s; -o-transition: all 0.2s ease-in-out 0.2s; }
+.form-subscribe .form-control:focus { background-color: #ffffff; border: 1px solid #cccccc; box-shadow: 0 0 5px 0 #e8e8e8 inset; }

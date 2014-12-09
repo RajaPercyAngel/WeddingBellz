@@ -1,0 +1,33 @@
+<header class='page-header'>
+  <h3>Galleries</h3>
+  
+</header>
+<%= link_to 'Add Image', new_picture_path  , :class=>"btn btn-primary pull-right" %> 
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        Title
+      </th>
+      <th>
+        Image
+      </th>
+      <th>
+        Action
+      </th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @pictures.each do |p| %>
+    <tr>
+      <td><%= p.title%></td>
+
+      <td><img src="<%=p.image.url(:thumb)%>" > </td>
+      <td>  <%= link_to 'Delete', p , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    
+    <% end %>
+  </tbody>
+</table>

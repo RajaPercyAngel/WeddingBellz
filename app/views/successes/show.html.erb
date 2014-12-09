@@ -1,0 +1,29 @@
+<h1>Bride and Groom Success Story</h1>
+
+
+<section>
+	
+	<%= image_tag @successes.image.url(:medium) %>
+  </section>
+		
+<br>
+<table class="table">
+  
+  <tr>
+    <th>Couple Name:</th>
+    <td><%= @successes.name %></td>
+    <th>Marriage Date </th>
+    <td><%= @successes.marriage_date %></td>
+     
+  </tr>
+</table>
+
+<hr>
+<p>
+  <strong>About your matching story:</strong>
+  <%= @successes.story %>
+</p>
+
+
+<%= link_to "Edit", edit_success_path(@successes)  if @successes.user_id == current_user.id%>
+
